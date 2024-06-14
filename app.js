@@ -1,13 +1,18 @@
+const { name } = require('ejs')
 const express = require('express')
 const app = express()
 const port = 3000
 
+
+app.set('view engine', 'ejs')
+app.set('views', './views')
+
 app.get('/', (req, res) => {
-    res.send('<h2>Hello World!</h2>')
+    res.render('home')
 })
 
-app.get('/about', (req, res) => {
-    res.send('<h1>Nama saya elang</h1>')
+app.get('/about/:name', (req, res) => {
+    res.render('about', {name: req.params.name})
 })
 
 app.listen(port, () => {
