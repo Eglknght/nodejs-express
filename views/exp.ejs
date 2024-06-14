@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experience</title>
+</head>
+
+<body>
+    <!-- div pake . jadi class
+    pake # jadi id -->
+    <h1>Nama <%= data_kandidat.nama %>
+    </h1>
+    <h1>Umur <%= data_kandidat.umur %>
+    </h1>
+    <h1>Pekerjaan <%= data_kandidat.pekerjaan %>
+    </h1>
+    <h1>Gaji <%= data_kandidat.gaji.toLocaleString() %>
+    </h1>
+    <% if (data_kandidat.gaji > 10000000) { %>
+    <h1>Bagus
+    </h1>
+    <% } else { %>
+    <h1>Jelek
+    </h1>
+    <% } %>
+</body>
+
+</html>
