@@ -28,7 +28,7 @@
                     <%=semua_karyawan[i].jabatan_nama %>
                 </td>
                 <td>
-                    <a href="/karyawan/detail">
+                    <a href="/karyawan/detail/<%=semua_karyawan[i].id %>">
                         <button>detail</button>
                     </a>
                 </td>
@@ -46,6 +46,3 @@
     %>
     </tbody>
 </table>
-<pre>
-    <%=JSON.stringify(semua_karyawan, null, 4) %>
-</pre>

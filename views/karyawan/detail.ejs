@@ -1,18 +1,21 @@
-<h1>Detail Karyawan</h1>
+<% if (detail_karyawan.length) { %>
+    <h1>Detail Karyawan</h1>
 
-<ul>
-    <li>Nama : <%= detail_karyawan[0].nama %></li>
-    <li>Alamat : <%= detail_karyawan[0].alamat %></li>
-    <li>Nomor Telepon : <%= detail_karyawan[0].no_telepon %></li>
-    <li>Golongan Darah : <%= detail_karyawan[0].gol_darah %></li>
-    <li>Jenis kelamin : <%= detail_karyawan[0].jenis_kelamin %></li>
-    <li>Departemen : <%= detail_karyawan[0].departemen_kode %> (<%= detail_karyawan[0].departemen_nama %>)</li>
-    <li>Jabatan : <%= detail_karyawan[0].jabatan_nama %></li>
-    <li>Role : <%= detail_karyawan[0].jabatan_role %></li>
-    <li>Deskripsi : <%= detail_karyawan[0].jabatan_deskripsi %></li>
+    <ul>
+        <li>Nama : <%= detail_karyawan[0].nama %></li>
+        <li>Alamat : <%= detail_karyawan[0].alamat %></li>
+        <li>Nomor Telepon : <%= detail_karyawan[0].no_telepon %></li>
+        <li>Golongan Darah : <%= detail_karyawan[0].gol_darah %></li>
+        <li>Jenis kelamin : <%= detail_karyawan[0].jenis_kelamin %></li>
+        <li>Departemen : <%= detail_karyawan[0].departemen_kode %> (<%= detail_karyawan[0].departemen_nama %>)</li>
+        <li>Jabatan : <%= detail_karyawan[0].jabatan_nama %></li>
+        <li>Role : <%= detail_karyawan[0].jabatan_role %></li>
+        <li>Deskripsi : <%= detail_karyawan[0].jabatan_deskripsi %></li>
 
-</ul>
+    </ul>
+<% } else { %>
+    <h1>Data Tidak Ditemukan</h1>
+<% } %>
+ 
 
-<pre>
-    <%=JSON.stringify(detail_karyawan, null, 4) %>
-</pre>
+
