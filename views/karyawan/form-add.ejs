@@ -1,0 +1,47 @@
+<h1>Tambah Karyawan</h1>
+
+<form action="/karyawan/add-process" method="post">
+
+<hr><hr>
+<label>Nama Lengkap</label>
+<input type="text" name="nama_lengkap" id="namaKaryawan">
+<br><br>
+
+<label>Alamat</label>
+<textarea name="alamat" id="alamatKaryawan"></textarea>
+<br><br>
+
+<label>Nomor Telepon</label>
+<input type="text" name="no_telepon" id="noTeleponKaryawan">
+<br><br>
+
+<label>Golongan Darah</label>
+<select name="gol_darah" id="golDarahKaryawan">
+    <option value="--pilih--">--pilih--</option>
+    <option value="A">A</option>
+    <option value="B">B</option>
+    <option value="AB">AB</option>
+    <option value="O">O</option>
+    <option value="-">Tidak Ada</option>
+</select>
+<br><br>
+
+<label>Jenis Kelamin</label>
+<select name="jenis_kelamin" id="jenisKelaminKaryawan">
+    <option value="Laki-laki">Laki-laki</option>
+    <option value="Perempuan">Perempuan</option>
+</select>
+<br><br>
+<button type="submit">Simpan</button>
+
+</form>
+
+<% if (info_error) { %> 
+
+    <strong style="color: red;">
+        <%= info_error.errno %> - <%= info_error.code %> <br>
+        <%= info_error.sqlMessage %> <br>
+    </strong>
+
+
+<% } %>

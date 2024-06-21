@@ -46,3 +46,12 @@
     %>
     </tbody>
 </table>
+<br>
+<a href="/karyawan/add">
+    <button>Add</button>
+</a>
+<% if (req.query.status == 'sukses') { %>
+    <script>
+        alert('data karyawan ditambahkan')
+    </script>
+<% } %>

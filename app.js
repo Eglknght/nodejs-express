@@ -3,6 +3,7 @@ const app = express()
 const port = 3000
 
 
+app.use(express.urlencoded({ extended: false }))
 app.set('view engine', 'ejs')
 app.set('views', './views')
 
@@ -32,23 +33,19 @@ app.get('/experience', (req, res) => {
         data_kandidat: data_kandidat
     })
 })
-app.get('/karyawan', async (req, res) => {
-    const m_karyawan = require('./model/m.karyawan')
-    let dataview = {
-        semua_karyawan : await m_karyawan.get_semua_karyawan(),
-    }
-    res.render('karyawan/all', dataview)
-})
 
-app.get('/karyawan/detail/:id_karyawan',async (req, res) => {
-    const m_karyawan = require('./model/m.karyawan')
-    const id = req.params.id_karyawan
-    let dataview = {
-        detail_karyawan : await m_karyawan.get_satu_karyawan(id),
-        Id : req.params.id
-    }
-    res.render('karyawan/detail', dataview)
-})
+const c_karyawan = require('./controller/c_karyawan')
+app.get('/karyawan', c_karyawan.home)
+
+app.get('/karyawan/detail/:id_karyawan', c_karyawan.detail)
+
+app.get('/karyawan/add', c_karyawan.add)
+
+app.post('/karyawan/add-process', c_karyawan.proses)
+
+    // res.redirect('/karyawan')
+// }
+
 
 app.listen(port, () => {
  console.log(`aplikasi sudah siap, buka http://localhost:${port}`)
