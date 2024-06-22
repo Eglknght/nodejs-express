@@ -80,5 +80,27 @@ module.exports =
                 }
             })
         })
+    },
+    edit_karyawan : function(req){
+        let data = {
+            nama : req.body.nama_lengkap,
+            alamat : req.body.alamat,
+            no_telepon : req.body.no_telepon,
+            gol_darah : req.body.gol_darah,
+            jenis_kelamin : req.body.jenis_kelamin
+        }
+        let sql = mysql.format(
+            `UPDATE karyawan SET ? WHERE id = ?`,
+            [data, req.params.id_karyawan]
+        )
+        return new Promise((resolve, reject) => {
+            db.query(sql, function(errSql, hasil){
+                if(errSql){
+                    reject(errSql)
+                } else {
+                    resolve(hasil)
+                }
+            })
+        })
     }
 }

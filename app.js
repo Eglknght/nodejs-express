@@ -36,12 +36,11 @@ app.get('/experience', (req, res) => {
 
 const c_karyawan = require('./controller/c_karyawan')
 app.get('/karyawan', c_karyawan.home)
-
 app.get('/karyawan/detail/:id_karyawan', c_karyawan.detail)
-
 app.get('/karyawan/add', c_karyawan.add)
-
 app.post('/karyawan/add-process', c_karyawan.proses)
+app.get('/karyawan/edit/:id_karyawan', c_karyawan.edit)
+app.post('/karyawan/edit-process/:id_karyawan', c_karyawan.proses_edit)
 
     // res.redirect('/karyawan')
 // }

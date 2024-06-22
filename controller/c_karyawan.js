@@ -26,12 +26,32 @@ module.exports =
         let insert = await m_karyawan.add_karyawan(req)
         try {
         if (insert.affectedRows > 0) {
-            res.redirect('/karyawan?status=sukses')
+            res.redirect('/karyawan?status=addsukses')
         }
         } catch (error) {
             res.render('/karyawan/add', {info_error: error})
     
         }
-    }
+    },
+    edit: async(req, res) => {
+        const id = req.params.id_karyawan
+        let dataview = {
+            detail_karyawan : await m_karyawan.get_satu_karyawan(id),
+            info_error: null
+        }
+        res.render('karyawan/form-edit', dataview)
+    },
+    proses_edit: async(req, res) => {
+        let update = await m_karyawan.edit_karyawan(req)
+        try {
+            if (update.affectedRows > 0) {
+                res.redirect('/karyawan?status=editsukses')
+            }
+        } catch (error) {
+            console.log(error)
+            res.redirect('/karyawan?status=editgagal')
+    
+        }
+    },
 
 }
